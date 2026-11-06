@@ -40,6 +40,6 @@ class HashTable:
         #return all contacts as a single list
         result = []
         for bucket in self.table:
-            for _, contact in bucket:
+            for key, contact in bucket:
                 result.append(contact)
         return result

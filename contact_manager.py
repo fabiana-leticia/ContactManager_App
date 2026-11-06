@@ -24,5 +24,5 @@ class ContactManager:
     def list_all_contacts(self):
         """Return all contacts sorted alphabetically by name"""
         raw_list = self.contacts_store.get_all()
-        contacts_only = [item[1] for item in raw_list]
+        contacts_only = [item for item in raw_list]
         return bubble_sort_contacts(contacts_only)

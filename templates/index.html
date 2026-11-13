@@ -13,7 +13,7 @@
     </div>
 
     <div class="search-section">
-        <form action="/search" method="GET">
+        <form action="{{ url_for('search') }}" method="GET">
             <input type="text" name="q" placeholder="Search by name..." required>
             <button type="submit" class="search-btn">Search</button>
         </form>

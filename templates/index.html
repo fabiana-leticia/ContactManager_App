@@ -18,7 +18,7 @@
             <button type="submit" class="search-btn">Search</button>
         </form>
         {% if search_query %}
-            <p class="search-results">Results for "{{ search_query }}": {{ contacts|length }} found · <a href="/">Show all</a></p>
+            <p class="search-results">Results for "{{ search_query }}": {{ contacts|length }} found · <a href="{{ url_for('index') }}">Show all</a></p>
         {% endif %}
     </div>
 

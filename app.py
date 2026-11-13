@@ -59,3 +59,15 @@ def delete(name):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/search')
+def search():
+    """search contacts by name, partial matches allowed"""
+    query = request.args.get('q', '').strip()
+    if not query:
+        return redirect(url_for('index'))
+
+    all_contacts = manager.list_all_contacts()
+    results = [c for c in all_contacts if query.lower() in c.name.lower()]
+
+    return render_template('index.html', contacts=results, search_query=query)

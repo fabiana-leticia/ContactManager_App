@@ -20,7 +20,7 @@ def load_sample_contacts(manager, count=100):
     print(f"✅ Loaded {added} sample contacts")
 
 
-# Carrega os 100 contactos QUANDO a app inicia
+# loads 100 sample contacts when the app starts
 load_sample_contacts(manager, 100)
 
 
@@ -50,16 +50,6 @@ def add():
     return redirect(url_for('index', msg=message))
 
 
-@app.route('/delete/<name>')
-def delete(name):
-    """Delete a contact by name"""
-    manager.delete_contact(name)
-    return redirect(url_for('index', msg=f"✅ Contact '{name}' deleted."))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
 @app.route('/search')
 def search():
     """search contacts by name, partial matches allowed"""
@@ -71,3 +61,15 @@ def search():
     results = [c for c in all_contacts if query.lower() in c.name.lower()]
 
     return render_template('index.html', contacts=results, search_query=query)
+
+
+@app.route('/delete/<name>')
+def delete(name):
+    """Delete a contact by name"""
+    manager.delete_contact(name)
+    return redirect(url_for('index', msg=f"✅ Contact '{name}' deleted."))
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+

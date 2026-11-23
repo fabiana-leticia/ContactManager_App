@@ -11,3 +11,18 @@ fake = Faker()
 
 def generate_contacts(count):
     """Create a list of random contacts"""
+    contacts = []
+    for _ in range(count):
+        name = fake.name()
+        phone = fake.phone_number()
+        email = fake.email()
+        contacts.append(Contact(name,phone,email))
+    return contacts
+
+def measure_time(contact_list, sort_function):
+    """measure how long a sorting function takes to run"""
+    copy_list = contact_list.copy()
+    start = time.time()
+    sort_function(copy_list)
+    end = time.time()
+    return end - start

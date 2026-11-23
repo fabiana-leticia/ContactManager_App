@@ -4,7 +4,7 @@
 
 import time 
 from contact import Contact
-from sorting import bubble_sort
+from sorting import bubble_sort_contacts
 from faker import Faker
 
 fake = Faker()
@@ -69,7 +69,7 @@ def merge(left, right):
             print(f"--- Testing with {size} contacts ---")
             test_data = generate_contacts(size)
 
-            bubble_time = measure_time(test_data, bubble_sort)
+            bubble_time = measure_time(test_data, bubble_sort_contacts)
             merge_time = measure_time(test_data, merge_sort)
 
             print(f"   Bubble Sort:  {bubble_time:.6f} seconds")

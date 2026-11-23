@@ -54,3 +54,31 @@ def merge(left, right):
         result.extend(left[i:])
         result.extend(right[j:])
         return result
+
+    # run tests!
+
+    if __name__=="__main__":
+        print("=" * 60)
+        print("📊 Bubble Sort vs Merge Sort — Speed Comparison")
+        print("=" * 60)
+        print()
+
+        sizes = [100, 500, 1000,2000]
+
+        for size in sizes:
+            print(f"--- Testing with {size} contacts ---")
+            test_data = generate_contacts(size)
+
+            bubble_time = measure_time(test_data, bubble_sort)
+            merge_time = measure_time(test_data, merge_sort)
+
+            print(f"   Bubble Sort:  {bubble_time:.6f} seconds")
+            print(f"   Merge Sort:   {merge_time:.6} seconds")
+            if merge_time > 0:
+                print(f"     - Merge Sort is {bubble_time / merge_time:.1}x faster!")
+            print()
+
+        print("=" * 60)
+        print("Conclusion: More data = bigger advantage for Merge Sort")
+        print("Bubble Sort = O(n^2). |  Merge Sort = O(n log n)")
+        print("=" * 60)

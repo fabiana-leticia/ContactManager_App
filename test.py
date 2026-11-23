@@ -26,3 +26,15 @@ def measure_time(contact_list, sort_function):
     sort_function(copy_list)
     end = time.time()
     return end - start
+
+# simple merge sort implementation for comparison
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    return merge(left, right)

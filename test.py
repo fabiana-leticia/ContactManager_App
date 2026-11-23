@@ -1,5 +1,4 @@
 # test.py — Bubble Sort vs Merge Sort Performance Test
-
 import time
 from contact import Contact
 from sorting import bubble_sort_contacts

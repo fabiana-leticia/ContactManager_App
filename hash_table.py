@@ -25,7 +25,7 @@ class HashTable:
         for item in self.table[index]:
             if item[0] == key:
                 return item[1]
-            return None
+        return None
 
     def delete(self, key):
         #remove contact by name
